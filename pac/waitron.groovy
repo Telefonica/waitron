@@ -20,7 +20,7 @@ pipeline {
                 dir ("${WORKSPACE}") {
                     sh '''
                          $(aws ecr get-login --no-include-email)
-                         docker build . -t 709233559969.dkr.ecr.eu-west-3.amazonaws.com:waitron-${WAITRON_VER}
+                         docker build . -t 709233559969.dkr.ecr.eu-west-3.amazonaws.com/waitron:waitron-${WAITRON_VER}
                        '''
                 }
              }
@@ -29,7 +29,7 @@ pipeline {
             steps {
                 dir ("${WORKSPACE}") {
                     sh '''
-                         docker push 709233559969.dkr.ecr.eu-west-3.amazonaws.com:waitron-${WAITRON_VER}
+                         docker build . -t 709233559969.dkr.ecr.eu-west-3.amazonaws.com/waitron:waitron-${WAITRON_VER}
                        '''
                }
              }
